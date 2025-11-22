@@ -1,0 +1,5 @@
+venv/
+__pycache__/
+.ipynb_checkpoints/
+/consulta_empresas.py
+/variaveis_pessoais.py
