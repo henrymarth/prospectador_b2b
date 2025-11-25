@@ -20,7 +20,7 @@ print(qtdArquivos)
 # === 4. Loop para ler os arquivos ===
 for i in range(qtdArquivos - 1):
     
-    contador_temp = i+3
+    contador_temp = i
     arquivo = f"../arquivos/empresas{contador_temp}.csv"  # ajusta conforme sua pasta
     print(f"Lendo {arquivo}...")
     count = 0
@@ -33,7 +33,7 @@ for i in range(qtdArquivos - 1):
         names=colunas_empresas,# define nomes das colunas
         header=None,# diz que não existe cabeçalho no arquivo
         low_memory=False,
-        chunksize = 100_000 #tamanho do chunk em linhas do excel
+        chunksize = 500_000 #tamanho do chunk em linhas do excel
     ):
 
         #aqui eu devo subir a chunk para o banco de dados
@@ -43,7 +43,7 @@ for i in range(qtdArquivos - 1):
             if_exists="append",
             index=False,
             method="multi",
-            chunksize=20_000
+            chunksize=5_000
         )
         count = count+1
 
