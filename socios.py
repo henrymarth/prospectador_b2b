@@ -41,17 +41,14 @@ for i in range(qtdArquivos):
     ):
 
         #aqui eu devo subir a chunk para o banco de dados
-        countsec = 0
-        for chunk in df_temp.to_sql(
+        df_temp.to_sql(
             "socios",
             banco,
             if_exists="append",
             index=False,
             method="multi",
             chunksize=10_000
-        ):
-            countsec = countsec + 1
-            print(f"Chunk número {countsec} do ToSQL")
+        )
 
         count = count+1
 
